@@ -1,4 +1,5 @@
 
 public class CCA {
-//	get timeslot, description if have
+//	get timeslot
+	//name,teacher in charge, number of student, timeslot
 }
