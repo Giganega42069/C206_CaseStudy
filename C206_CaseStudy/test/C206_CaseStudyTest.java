@@ -26,15 +26,17 @@ public class C206_CaseStudyTest {
 		activity2 = new Activity("Badminton");
 		activity3 = new Activity("Volleyball");
 	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	
 	@Test
 	public void c206_test() {
 		//fail("Not yet implemented"); 
 		assertTrue("C206_CaseStudy_SampleTest ",true);
 	}
+	
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	
 
 }
