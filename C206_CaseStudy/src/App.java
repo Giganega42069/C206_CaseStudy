@@ -122,6 +122,28 @@ class Controller {
     private List<Activity> activities = new ArrayList<>();
     private List<Registration> registrations = new ArrayList<>();
     private List<Attendance> attendances = new ArrayList<>();
+    
+    public Controller() {
+        users.add(new User("admin123", "123", "admin"));
+        users.add(new User("teacher123", "123", "teacher"));
+        users.add(new User("student123", "123", "student"));
+        
+        activities.add(new Activity("Soccer/Football"));
+        activities.add(new Activity("Badminton"));
+        activities.add(new Activity("Basketball"));
+        activities.add(new Activity("Volleyball"));
+        activities.add(new Activity("NCC"));
+        activities.add(new Activity("NPCC"));
+        activities.add(new Activity("Red Cross"));
+        activities.add(new Activity("Military Band"));
+        activities.add(new Activity("Dance"));
+        activities.add(new Activity("Drama"));
+        activities.add(new Activity("Choir"));
+        activities.add(new Activity("String Ensemble"));
+        
+    }
+    
+    
 
     public void addUser(String username, String password, String role) {
         User user = new User(username, password, role);
