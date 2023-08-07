@@ -8,11 +8,39 @@ public class C206_CaseStudy {
     private static User currentUser;
     private static Scanner scanner = new Scanner(System.in);
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    
+    
+  //ALL PASSWORDS ARE "123"
+    
+  //student1 details: "student123");
+  //student2 details: "harry");
+  //student3 details: "peter parker");
+    
+  //admin details: "admin123");
+  //teacher details: "teacher123");
+    
+  //LIST OF ACTIVITIES
+  //Drama
+  //Soccer/Football
+  //Badminton
+  //Basketball
+  //Volleyball
+  //NCC
+  //NPCC
+  //Red Cross
+  //Military Band
+  //Dance
+  //Choir
+  //String Ensemble
+    
 
     public static void main(String[] args) {
         while (true) {
+        	System.out.println("");
+        	System.out.println("Main Menu");
+        	Helper.line(20, "=");
             System.out.println("1. Login");
-            System.out.println("1. Exit");
+            System.out.println("2. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
@@ -60,6 +88,9 @@ public class C206_CaseStudy {
 
     private static void performStudentActions() {
         while (true) {
+        	System.out.println("");
+        	System.out.println("Student Menu");
+        	Helper.line(20, "=");
             System.out.println("1. Register for activity");
             System.out.println("2. View all activities");
             System.out.println("3. Logout");
@@ -84,6 +115,9 @@ public class C206_CaseStudy {
 
     private static void performTeacherActions() {
         while (true) {
+        	System.out.println("");
+        	System.out.println("Teacher Menu");
+        	Helper.line(20, "=");
             System.out.println("1. Add activity");
             System.out.println("2. Delete activity");
             System.out.println("3. View all activities");
@@ -152,6 +186,9 @@ public class C206_CaseStudy {
 
     private static void performAdminActions() {
         while (true) {
+        	System.out.println("");
+        	System.out.println("Admin Menu");
+        	Helper.line(20, "=");
             System.out.println("1. Add user");
             System.out.println("2. Delete user");
             System.out.println("3. View all users");

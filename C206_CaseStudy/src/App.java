@@ -124,10 +124,19 @@ class Controller {
     private List<Attendance> attendances = new ArrayList<>();
     
     public Controller() {
+    	
+    	User student1 = new User("student123", "123", "student");
+    	User student2 = new User("harry", "123", "student");
+    	User student3 = new User("peter parker", "123", "student");
+    	users.add(student1);
+        users.add(student2);
+        users.add(student3);
+    	
+    
         users.add(new User("admin123", "123", "admin"));
         users.add(new User("teacher123", "123", "teacher"));
-        users.add(new User("student123", "123", "student"));
         
+        Activity activity = new Activity("Drama");
         activities.add(new Activity("Soccer/Football"));
         activities.add(new Activity("Badminton"));
         activities.add(new Activity("Basketball"));
@@ -137,9 +146,16 @@ class Controller {
         activities.add(new Activity("Red Cross"));
         activities.add(new Activity("Military Band"));
         activities.add(new Activity("Dance"));
-        activities.add(new Activity("Drama"));
+        activities.add(activity);
         activities.add(new Activity("Choir"));
         activities.add(new Activity("String Ensemble"));
+        
+     
+        
+        
+        registrations.add(new Registration(student1,activity));
+        registrations.add(new Registration(student2,activity));
+        registrations.add(new Registration(student3,activity));
         
     }
     
