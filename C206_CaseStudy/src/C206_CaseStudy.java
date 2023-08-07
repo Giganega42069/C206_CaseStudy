@@ -12,8 +12,7 @@ public class C206_CaseStudy {
     public static void main(String[] args) {
         while (true) {
             System.out.println("1. Login");
-            System.out.println("2. Register");
-            System.out.println("3. Exit");
+            System.out.println("2. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
@@ -22,9 +21,6 @@ public class C206_CaseStudy {
                     login();
                     break;
                 case 2:
-                    register();
-                    break;
-                case 3:
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice. Try again.");
@@ -46,17 +42,6 @@ public class C206_CaseStudy {
             }
         }
         System.out.println("Invalid username or password. Try again.");
-    }
-
-    private static void register() {
-        System.out.print("Enter username: ");
-        String username = scanner.nextLine();
-        System.out.print("Enter password: ");
-        String password = scanner.nextLine();
-        System.out.print("Enter role (student/teacher/admin): ");
-        String role = scanner.nextLine();
-        controller.addUser(username, password, role);
-        System.out.println("Registered successfully!");
     }
 
     private static void performActionsBasedOnRole() {
@@ -400,7 +385,7 @@ public class C206_CaseStudy {
 
     // methods for admin actions
 
-    static void addUser() {
+    public static void addUser() {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
