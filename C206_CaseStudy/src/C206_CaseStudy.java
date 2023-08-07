@@ -12,7 +12,7 @@ public class C206_CaseStudy {
     public static void main(String[] args) {
         while (true) {
             System.out.println("1. Login");
-            System.out.println("2. Exit");
+            System.out.println("1. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume newline
