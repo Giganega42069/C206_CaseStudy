@@ -40,6 +40,7 @@ public class C206_CaseStudyTest {
 		
 		
 		userList = new ArrayList<User>();
+		activityList = new ArrayList<Activity>();
 		attendanceList = new ArrayList<Attendance>();
 	}
 	
@@ -158,7 +159,59 @@ public class C206_CaseStudyTest {
 		attendanceList.remove(attendance3);
 		assertEquals("check that the user arraylist size is 0", 0,attendanceList.size());
 	}
+	 
+	@Test
+	public void testAddActivity() {
+		assertNotNull("Check if there is a valid attendance arraylist to add to", activityList);
+		activityList.add(activity1);
+		assertEquals("check that the activity arraylist size is 1", 1,activityList.size());
+		assertSame("check that the activity is added", activity1,activityList.get(0));
+		
+		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
+		activityList.add(activity2);
+		assertEquals("check that the activity arraylist size is 2", 2,activityList.size());
+		assertSame("check that the activity is added", activity2,activityList.get(1));
+		
+		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
+		activityList.add(activity3);
+		assertEquals("check that the activity arraylist size is 3", 3,activityList.size());
+		assertSame("check that the activity is added", activity3,activityList.get(2));
+		
 	
+	}
+	@Test
+	public void testViewAddActivity() {
+		assertNotNull("Check if the arraylist still exist even though empty", activityList);
+		
+		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
+		activityList.add(activity1);
+		assertEquals("check that the activity arraylist size is 2", 1,activityList.size());
+		assertSame("check that the activity is added into the arraylist according to input", activity1,activityList.get(0));
+		
+		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
+		activityList.add(activity2);
+		assertEquals("check that the activity arraylist size is 2", 2,activityList.size());
+		assertSame("check that the activity is added into the arraylist according to input", activity2,activityList.get(1));
+		
+	}
+	@Test
+	public void testDeleteActivity() {
+		activityList.add(activity1);
+		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
+		activityList.remove(activity1);
+		assertEquals("check that the activity arraylist size is 0", 0,activityList.size());
+		
+		activityList.add(activity2);
+		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
+		activityList.remove(activity2);
+		assertEquals("check that the activity arraylist size is 0", 0,activityList.size());
+		
+		
+		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
+		activityList.remove(activity3);
+		assertEquals("check that the user arraylist size is 0", 0,activityList.size());
+	}
+
 	
 	@After
 	public void tearDown() throws Exception {
