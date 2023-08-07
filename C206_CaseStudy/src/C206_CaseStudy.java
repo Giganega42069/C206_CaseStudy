@@ -9,6 +9,7 @@ public class C206_CaseStudy {
     private static Scanner scanner = new Scanner(System.in);
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     
+  //IMPORTANT INFO
     
   //ALL PASSWORDS ARE "123"
     
@@ -32,6 +33,8 @@ public class C206_CaseStudy {
   //Dance
   //Choir
   //String Ensemble
+    
+  //note that time slot is only added for the Drama activity so only use the drama activity when testing 
     
 
     public static void main(String[] args) {

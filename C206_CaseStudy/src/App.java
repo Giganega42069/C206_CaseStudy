@@ -150,12 +150,39 @@ class Controller {
         activities.add(new Activity("Choir"));
         activities.add(new Activity("String Ensemble"));
         
-     
-        
-        
         registrations.add(new Registration(student1,activity));
         registrations.add(new Registration(student2,activity));
         registrations.add(new Registration(student3,activity));
+        
+        attendances.add(new Attendance(student1, activity, true));
+        attendances.add(new Attendance(student2, activity, true));
+        attendances.add(new Attendance(student3, activity, false));
+
+		String timeStart1 = "2023-08-07 12:00";
+		String timeEnd1 = "2023-08-07 16:00";
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		LocalDateTime dateTimeStart1 = LocalDateTime.parse(timeStart1, formatter);
+		LocalDateTime dateTimeEnd1 = LocalDateTime.parse(timeEnd1, formatter);
+		TimeSlot timeslot1 = new TimeSlot(dateTimeStart1, dateTimeEnd1);
+
+		String timeStart2 = "2023-08-07 12:00";
+		String timeEnd2 = "2023-08-07 16:00";
+		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		LocalDateTime dateTimeStart2 = LocalDateTime.parse(timeStart2, formatter2);
+		LocalDateTime dateTimeEnd2 = LocalDateTime.parse(timeEnd2, formatter2);
+		TimeSlot timeslot2 = new TimeSlot(dateTimeStart2, dateTimeEnd2);
+
+		String timeStart3 = "2023-08-07 12:00";
+		String timeEnd3 = "2023-08-07 16:00";
+		DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		LocalDateTime dateTimeStart3 = LocalDateTime.parse(timeStart3, formatter3);
+		LocalDateTime dateTimeEnd3 = LocalDateTime.parse(timeEnd3, formatter3);
+		TimeSlot timeslot3 = new TimeSlot(dateTimeStart3, dateTimeEnd3);
+
+		activity.getTimeSlots().add(timeslot1);
+		activity.getTimeSlots().add(timeslot2);
+		activity.getTimeSlots().add(timeslot3);
+
         
     }
     
