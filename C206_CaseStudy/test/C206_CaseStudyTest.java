@@ -16,11 +16,15 @@ public class C206_CaseStudyTest {
 	private Attendance attendance1;
 	private Attendance attendance2;
 	private Attendance attendance3;
+	private Registration status1;
+	private Registration status2;
+	private Registration status3;
+	
 	
 	private ArrayList<User> userList;
 	private ArrayList<Activity> activityList;
 	private ArrayList<Attendance> attendanceList;
-	
+	private ArrayList<Registration> ApprovalStatusList;
 	
 	public C206_CaseStudyTest() {
 		super();
@@ -38,10 +42,10 @@ public class C206_CaseStudyTest {
 		attendance2 = new Attendance(user2, activity3, true);
 		attendance3 = new Attendance(user2, activity3, true);
 		
-		
 		userList = new ArrayList<User>();
 		activityList = new ArrayList<Activity>();
 		attendanceList = new ArrayList<Attendance>();
+		ApprovalStatusList= new ArrayList<Registration>();
 	}
 	
 	@Test
@@ -210,6 +214,67 @@ public class C206_CaseStudyTest {
 		assertNotNull("Check if there is a valid activity arraylist to add to", activityList);
 		activityList.remove(activity3);
 		assertEquals("check that the user arraylist size is 0", 0,activityList.size());
+	}
+	
+	@Test
+	public void testAddApprovalStatus() {
+		assertNotNull("Check if there is a valid Approval Status arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.add(status1);
+		assertEquals("check that the Approval Status arraylist size is 1", 1, ApprovalStatusList.size());
+		assertSame("check that the Approval Status is added", status1, ApprovalStatusList.get(0));
+		
+		assertNotNull("Check if there is a valid Approval Status arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.add(status2);
+		assertEquals("check that the Approval Status arraylist size is 2", 2, ApprovalStatusList.size());
+		assertSame("check that the Approval Status is added", status2, ApprovalStatusList.get(1));
+		
+		assertNotNull("Check if there is a valid Approval Status arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.add(status3);
+		assertEquals("check that the Approval Status arraylist size is 3", 3, ApprovalStatusList.size());
+		assertSame("check that the Approval Status is added", status3, ApprovalStatusList.get(2));
+		
+	
+	}
+	
+	
+	@Test
+	public void testViewApprovalStatus() {
+		assertNotNull("Check if the arraylist still exist even though empty", ApprovalStatusList);
+		
+		assertNotNull("Check if there is a valid attendance arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.add(status1);
+		assertEquals("check that the Approval Status arraylist size is 2", 1,ApprovalStatusList.size());
+		assertSame("check that the Approval Status is added into the arraylist according to input", status1, ApprovalStatusList.get(0));
+		
+		assertNotNull("Check if there is a valid Approval Status arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.add(status2);
+		assertEquals("check that the Approval Status arraylist size is 2", 2, ApprovalStatusList.size());
+		assertSame("check that the Approval Status is added into the arraylist according to input", status2, ApprovalStatusList.get(1));
+		
+		assertNotNull("Check if there is a valid Approval Status arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.add(status3);
+		assertEquals("check that the Approval Status arraylist size is 2", 3, ApprovalStatusList.size());
+		assertSame("check that the Approval Status is added into the arraylist according to input", status3, ApprovalStatusList.get(2));
+		
+	}
+	
+
+	@Test
+	public void testDeleteApprovalStatus() {
+		
+		ApprovalStatusList.add(status1);
+		assertNotNull("Check if there is a valid user arraylist to add to", userList);
+		ApprovalStatusList.remove(status1);
+		assertEquals("check that the user arraylist size is 0", 0, ApprovalStatusList.size());
+		
+		ApprovalStatusList.add(status2);
+		assertNotNull("Check if there is a valid user arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.remove(status2);
+		assertEquals("check that the user arraylist size is 0", 0, ApprovalStatusList.size());
+		
+		assertNotNull("Check if there is a valid user arraylist to add to", ApprovalStatusList);
+		ApprovalStatusList.remove(status3);
+		assertEquals("check that the user arraylist size is 0", 0,ApprovalStatusList.size());
 	}
 
 	
