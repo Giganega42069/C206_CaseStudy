@@ -19,12 +19,16 @@ public class C206_CaseStudyTest {
 	private Registration status1;
 	private Registration status2;
 	private Registration status3;
+	private Registration registration1;
+	private Registration registration2;
+	private Registration registration3;
 	
 	
 	private ArrayList<User> userList;
 	private ArrayList<Activity> activityList;
 	private ArrayList<Attendance> attendanceList;
 	private ArrayList<Registration> ApprovalStatusList;
+	private ArrayList<Registration> registrationList;
 	
 	public C206_CaseStudyTest() {
 		super();
@@ -41,11 +45,15 @@ public class C206_CaseStudyTest {
 		attendance1 = new Attendance(user1, activity2, true);
 		attendance2 = new Attendance(user2, activity3, true);
 		attendance3 = new Attendance(user2, activity3, true);
+		registration1 = new Registration(user1, activity1);
+		registration2 = new Registration(user1, activity2);
+		registration3 = new Registration(user2, activity3);
 		
 		userList = new ArrayList<User>();
 		activityList = new ArrayList<Activity>();
 		attendanceList = new ArrayList<Attendance>();
 		ApprovalStatusList= new ArrayList<Registration>();
+		registrationList = new ArrayList<Registration>();
 	}
 	
 	@Test
@@ -277,6 +285,60 @@ public class C206_CaseStudyTest {
 		assertEquals("check that the user arraylist size is 0", 0,ApprovalStatusList.size());
 	}
 
+	@Test
+	public void testRegisterForActivity() {
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.add(registration1);
+		assertEquals("check that the registration arraylist size is 1", 1,registrationList.size());
+		assertSame("check that the registration is added", registration1,registrationList.get(0));
+		
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.add(registration2);
+		assertEquals("check that the registration arraylist size is 2", 2,registrationList.size());
+		assertSame("check that the registration is added", registration2,registrationList.get(1));
+		
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.add(registration3);
+		assertEquals("check that the registration arraylist size is 3", 3,registrationList.size());
+		assertSame("check that the registration is added", registration3,registrationList.get(2));
+	
+	}
+	
+	@Test
+	public void testDeleteRegistration() {
+		
+		registrationList.add(registration1);
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.remove(registration1);
+		assertEquals("check that the registration arraylist size is 0", 0,userList.size());
+		
+		registrationList.add(registration2);
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.remove(registration2);
+		assertEquals("check that the registration arraylist size is 0", 0,userList.size());
+		
+		
+		registrationList.add(registration3);
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.remove(registration3);
+		assertEquals("check that the registration arraylist size is 0", 0,userList.size());
+	}
+	
+	@Test
+	public void testViewAllRegistration() {
+		assertNotNull("Check if the arraylist still exist even though empty", registrationList);
+		
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.add(registration1);
+		assertEquals("check that the registration arraylist size is 2", 1,registrationList.size());
+		assertSame("check that the registration is added into the arraylist according to input", registration1,registrationList.get(0));
+		
+		assertNotNull("Check if there is a valid registration arraylist to add to", registrationList);
+		registrationList.add(registration2);
+		assertEquals("check that the registration arraylist size is 2", 2,registrationList.size());
+		assertSame("check that the registration is added into the arraylist according to input", registration2,registrationList.get(1));
+		
+	}
 	
 	@After
 	public void tearDown() throws Exception {
