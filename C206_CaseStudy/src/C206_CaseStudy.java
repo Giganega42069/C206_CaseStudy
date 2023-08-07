@@ -400,7 +400,7 @@ public class C206_CaseStudy {
 
     // methods for admin actions
 
-    private static void addUser() {
+    static void addUser() {
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
         System.out.print("Enter password: ");
