@@ -12,8 +12,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
- 
-
 public class C206_CaseStudyTest {
 	private User user1;
 	private User user2;
@@ -287,7 +285,7 @@ public class C206_CaseStudyTest {
 	public void testViewApprovalStatus() {
 		assertNotNull("Check if the arraylist still exist even though empty", ApprovalStatusList);
 
-		assertNotNull("Check if there is a valid attendance arraylist to add to", ApprovalStatusList);
+		assertNotNull("Check if there is a valid Approval status arraylist to add to", ApprovalStatusList);
 		ApprovalStatusList.add(status1);
 		assertEquals("check that the Approval Status arraylist size is 2", 1,ApprovalStatusList.size());
 		assertSame("check that the Approval Status is added into the arraylist according to input", status1, ApprovalStatusList.get(0));
