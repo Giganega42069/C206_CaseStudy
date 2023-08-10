@@ -498,7 +498,7 @@ public class C206_CaseStudy {
         for (User user : controller.getUsers()) {
             System.out.println("Username: " + user.getUsername() + ", Role: " + user.getRole());
         }
-    }
+    } 
     
     private static String getUserInput(String message) {
         System.out.print(message);
