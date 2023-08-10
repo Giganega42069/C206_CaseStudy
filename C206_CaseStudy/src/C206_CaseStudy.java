@@ -1,4 +1,4 @@
-	
+
 import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -425,19 +425,22 @@ public class C206_CaseStudy {
 
     // methods for admin actions
 
-    private static void addUser() {
-        String username = getUserInput("Enter username: ");
-        String password = getUserInput("Enter password: ");
-        String role = getUserRole();
-
+    public static void addUser() {
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        System.out.print("Enter role (student/teacher/admin): ");
+        String role = scanner.nextLine();
         controller.addUser(username, password, role);
         System.out.println("User added successfully!");
     }
 
     private static void deleteUser() {
-        String username = getUserInput("Enter the username to delete: ");
+        viewAllUsers();
+        System.out.print("Enter the username to delete: ");
+        String username = scanner.nextLine();
         User user = findUserByUsername(username);
-
         if (user != null) {
             controller.removeUser(user);
             System.out.println("User deleted successfully!");
@@ -494,29 +497,9 @@ public class C206_CaseStudy {
     // utility methods to view entities
 
     private static void viewAllUsers() {
-        System.out.println("List of Users:");
         for (User user : controller.getUsers()) {
             System.out.println("Username: " + user.getUsername() + ", Role: " + user.getRole());
         }
-    } 
-    
-    private static String getUserInput(String message) {
-        System.out.print(message);
-        return scanner.nextLine();
-    }
-
-    private static String getUserRole() {
-        String role;
-        do {
-            role = getUserInput("Enter role (student/teacher/admin): ");
-        } while (!isValidRole(role));
-        return role;
-    }
-    
-    private static boolean isValidRole(String role) {
-        return role.equalsIgnoreCase("student") ||
-               role.equalsIgnoreCase("teacher") ||
-               role.equalsIgnoreCase("admin");
     }
 
     private static void viewAllActivities() {
@@ -535,10 +518,14 @@ public class C206_CaseStudy {
 
     private static void viewAllAttendances() {
         for (Attendance attendance : controller.getAttendances()) {
-            System.out.println("Student username: " + attendance.getStudent().getUsername() +
-                               ", Activity name: " + attendance.getActivity().getName() +
-                               ", Present: " + attendance.isPresent());
+            System.out.println(formatAttendance(attendance));
         }
+    }
+
+    private static String formatAttendance(Attendance attendance) {
+        return "Student username: " + attendance.getStudent().getUsername() +
+               ", Activity name: " + attendance.getActivity().getName() +
+               ", Present: " + attendance.isPresent();
     }
 
     private static void viewAllTimeSlotsForActivity(Activity activity) {
