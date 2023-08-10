@@ -340,16 +340,23 @@ public class C206_CaseStudy {
         System.out.print("Enter the activity name to add a time slot for: ");
         String activityName = scanner.nextLine();
         Activity activity = findActivityByName(activityName);
+
         if (activity == null) {
             System.out.println("Activity not found. Try again.");
             return;
         }
-        System.out.print("Enter start time (format: yyyy-MM-dd HH:mm): ");
-        String start = scanner.nextLine();
-        System.out.print("Enter end time (format: yyyy-MM-dd HH:mm): ");
-        String end = scanner.nextLine();
-        controller.addTimeSlot(activity, LocalDateTime.parse(start, formatter), LocalDateTime.parse(end, formatter));
+
+        LocalDateTime start = getInputDateTime("Enter start time (format: yyyy-MM-dd HH:mm): ");
+        LocalDateTime end = getInputDateTime("Enter end time (format: yyyy-MM-dd HH:mm): ");
+
+        controller.addTimeSlot(activity, start, end);
         System.out.println("Time slot added successfully!");
+    }
+
+    private static LocalDateTime getInputDateTime(String prompt) {
+        System.out.print(prompt);
+        String input = scanner.nextLine();
+        return LocalDateTime.parse(input, formatter);
     }
 
     private static void deleteTimeSlot() {
@@ -357,21 +364,25 @@ public class C206_CaseStudy {
         System.out.print("Enter the activity name to delete a time slot from: ");
         String activityName = scanner.nextLine();
         Activity activity = findActivityByName(activityName);
+
         if (activity == null) {
             System.out.println("Activity not found. Try again.");
             return;
         }
+
         viewAllTimeSlotsForActivity(activity);
-        System.out.print("Enter start time of the time slot to delete (format: yyyy-MM-dd HH:mm): ");
-        String start = scanner.nextLine();
-        TimeSlot timeSlot = findTimeSlotByStart(activity, LocalDateTime.parse(start, formatter));
+        LocalDateTime start = getInputDateTime("Enter start time of the time slot to delete (format: yyyy-MM-dd HH:mm): ");
+        TimeSlot timeSlot = findTimeSlotByStart(activity, start);
+
         if (timeSlot == null) {
             System.out.println("Time slot not found. Try again.");
             return;
         }
+
         controller.removeTimeSlot(activity, timeSlot);
         System.out.println("Time slot deleted successfully!");
     }
+
 
     private static void approveRegistration() {
         viewAllRegistrations();
