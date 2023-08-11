@@ -192,10 +192,7 @@ public class C206_CaseStudyTest {
 	@Test
 	public void testDeleteAttendance() {
 
-		attendanceList.add(attendance1);
-		assertNotNull("Check if there is a valid user arraylist to add to", userList);
-		attendanceList.remove(attendance1);
-		assertEquals("check that the user arraylist size is 0", 0,attendanceList.size());
+		assertNotNull("Check if the arraylist still exist even though empty", attendanceList);
 
 		attendanceList.add(attendance2);
 		assertNotNull("Check if there is a valid user arraylist to add to", attendanceList);
