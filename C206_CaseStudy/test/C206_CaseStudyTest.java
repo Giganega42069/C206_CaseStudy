@@ -176,7 +176,7 @@ public class C206_CaseStudyTest {
 
 		assertNotNull("Check if there is a valid attendance arraylist to add to", attendanceList);
 		attendanceList.add(attendance1);
-		assertEquals("check that the attendance arraylist size is 2", 1,attendanceList.size());
+		assertEquals("check that the attendance arraylist size is 1", 1,attendanceList.size());
 		assertSame("check that the attendance is added into the arraylist according to input", attendance1,attendanceList.get(0));
 
 		assertNotNull("Check if there is a valid attendance arraylist to add to", attendanceList);
