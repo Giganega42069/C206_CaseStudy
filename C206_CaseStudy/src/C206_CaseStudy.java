@@ -257,6 +257,8 @@ public class C206_CaseStudy {
         System.out.print("Enter the activity name to register for: ");
         String activityName = scanner.nextLine();
         Activity activity = findActivityByName(activityName);
+        
+        //handle the insertion 
         if (activity != null) {
             controller.registerForActivity(currentUser, activity);
             System.out.println("Registered for activity successfully!");
